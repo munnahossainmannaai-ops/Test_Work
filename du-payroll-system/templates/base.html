@@ -20,6 +20,7 @@
                 {% if current_user.role in ['admin', 'hr'] %}
                 <li><a href="{{ url_for('employees.list_employees') }}">Employees</a></li>
                 <li><a href="{{ url_for('payroll.list_payroll') }}">Payroll</a></li>
+                <li><a href="{{ url_for('payroll.process_payroll_with_tax') }}">Process (Auto-Tax)</a></li>
                 <li><a href="{{ url_for('leaves.list_leaves') }}">Leaves</a></li>
                 <li><a href="{{ url_for('loans.list_loans') }}">Loans</a></li>
                 <li><a href="{{ url_for('reports.index') }}">Reports</a></li>

@@ -53,9 +53,9 @@
                 <span class="action-icon">➕</span>
                 <span>Add New Employee</span>
             </a>
-            <a href="{{ url_for('payroll.process_payroll') }}" class="action-card">
+            <a href="{{ url_for('payroll.process_payroll_with_tax') }}" class="action-card">
                 <span class="action-icon">💵</span>
-                <span>Process Payroll</span>
+                <span>Process Payroll (Auto-Tax)</span>
             </a>
             <a href="{{ url_for('leaves.add_leave') }}" class="action-card">
                 <span class="action-icon">🏖️</span>
@@ -64,6 +64,10 @@
             <a href="{{ url_for('reports.index') }}" class="action-card">
                 <span class="action-icon">📈</span>
                 <span>View Reports</span>
+            </a>
+            <a href="{{ url_for('reports.export_payroll_summary_pdf') }}" class="action-card">
+                <span class="action-icon">📄</span>
+                <span>Export Payroll PDF</span>
             </a>
         </div>
     </section>
