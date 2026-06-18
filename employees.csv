@@ -1,0 +1,9 @@
+emp_id,name,designation,department,join_date,basic_salary,allowance_pct
+DU001,Dr. Mohammad Rahman,Professor,Computer Science,2010-01-15,180000,0.15
+DU002,Dr. Fatema Khatun,Associate Professor,Physics,2012-03-20,140000,0.12
+DU003,Md. Abdul Karim,Assistant Professor,Mathematics,2015-07-10,100000,0.1
+DU004,Nasrin Akter,Lecturer,English,2018-01-05,70000,0.08
+DU005,Md. Rafiqul Islam,Registrar,Administration,2008-06-12,250000,0.18
+DU006,Salma Begum,Accountant,Finance,2014-09-18,80000,0.08
+DU007,Abdul Mannan,Office Staff,Administration,2016-02-28,35000,0.05
+DU008,Karim Uddin,Security Guard,Security,2017-05-15,25000,0.03

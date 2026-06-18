@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to University of Dhaka Payroll Management System</h1>
+        <p>A comprehensive payroll management solution for Dhaka University employees</p>
+        
+        {% if not current_user.is_authenticated %}
+        <div class="hero-actions">
+            <a href="{{ url_for('main.login') }}" class="btn btn-primary">Login to System</a>
+            <a href="#" class="btn btn-secondary">Learn More</a>
+        </div>
+        {% else %}
+        <div class="hero-actions">
+            <a href="{{ url_for('main.dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3>Employee Management</h3>
+            <p>Manage employee information, departments, and designations efficiently</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Payroll Processing</h3>
+            <p>Automated salary calculation with allowances and deductions</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Reports & Analytics</h3>
+            <p>Generate detailed payroll reports and financial analytics</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🏖️</div>
+            <h3>Leave Management</h3>
+            <p>Track and manage employee leaves and attendance</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🏦</div>
+            <h3>Loan Management</h3>
+            <p>Handle employee loans and installment deductions</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure & Compliant</h3>
+            <p>Role-based access control and audit trails for compliance</p>
+        </div>
+    </div>
+</div>
+
+<div class="info-section">
+    <h2>About University of Dhaka</h2>
+    <p>The University of Dhaka is the oldest university in modern Bangladesh. Established in 1921, it has a rich history of academic excellence and continues to be a premier institution of higher education in South Asia.</p>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>1921</h3>
+            <p>Year Established</p>
+        </div>
+        <div class="stat-card">
+            <h3>80+</h3>
+            <p>Departments</p>
+        </div>
+        <div class="stat-card">
+            <h3>30,000+</h3>
+            <p>Students</p>
+        </div>
+        <div class="stat-card">
+            <h3>2,000+</h3>
+            <p>Faculty & Staff</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
