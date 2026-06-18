@@ -1,0 +1,26 @@
+nohup: ignoring input
+
+============================================================
+DHAKA UNIVERSITY PAYROLL MANAGEMENT SYSTEM v2.0
+============================================================
+✅ Features Enabled:
+   • SQLite Database
+   • PDF Payslip Generation
+   • Bangladesh Tax Calculator (NBR 2023-24)
+   • Auto-calculation of Allowances
+   • Festival Bonus Ready
+   • Loan Management Ready
+   • Role-Based Access Control
+   • Dashboard Analytics
+
+🔐 Login Credentials:
+   Admin: admin / admin123
+   HR: hr / hr123
+
+🌐 Access the system at: http://localhost:5000
+============================================================
+
+ * Serving Flask app 'du_payroll_v2'
+ * Debug mode: on
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
