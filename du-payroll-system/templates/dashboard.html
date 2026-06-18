@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <p>Welcome, {{ current_user.username }}!</p>
+</div>
+
+<div class="stats-overview">
+    <div class="stat-card primary">
+        <div class="stat-icon">👥</div>
+        <div class="stat-info">
+            <h3>{{ total_employees }}</h3>
+            <p>Total Employees</p>
+        </div>
+    </div>
+    
+    {% if current_user.role in ['admin', 'hr'] %}
+    <div class="stat-card success">
+        <div class="stat-icon">💰</div>
+        <div class="stat-info">
+            <h3>{{ pending_leaves }}</h3>
+            <p>Pending Leave Requests</p>
+        </div>
+    </div>
+    
+    <div class="stat-card warning">
+        <div class="stat-icon">📋</div>
+        <div class="stat-info">
+            <h3>{{ recent_payroll|length }}</h3>
+            <p>Recent Payroll Entries</p>
+        </div>
+    </div>
+    
+    <div class="stat-card info">
+        <div class="stat-icon">📊</div>
+        <div class="stat-info">
+            <h3>Active</h3>
+            <p>System Status</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% if current_user.role in ['admin', 'hr'] %}
+<div class="dashboard-sections">
+    <section class="dashboard-section">
+        <h2>Quick Actions</h2>
+        <div class="quick-actions-grid">
+            <a href="{{ url_for('employees.add_employee') }}" class="action-card">
+                <span class="action-icon">➕</span>
+                <span>Add New Employee</span>
+            </a>
+            <a href="{{ url_for('payroll.process_payroll') }}" class="action-card">
+                <span class="action-icon">💵</span>
+                <span>Process Payroll</span>
+            </a>
+            <a href="{{ url_for('leaves.add_leave') }}" class="action-card">
+                <span class="action-icon">🏖️</span>
+                <span>Manage Leaves</span>
+            </a>
+            <a href="{{ url_for('reports.index') }}" class="action-card">
+                <span class="action-icon">📈</span>
+                <span>View Reports</span>
+            </a>
+        </div>
+    </section>
+    
+    <section class="dashboard-section">
+        <h2>Recent Payroll Records</h2>
+        {% if recent_payroll %}
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Month</th>
+                        <th>Year</th>
+                        <th>Net Pay</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in recent_payroll %}
+                    <tr>
+                        <td>{{ record.employee.full_name }}</td>
+                        <td>{{ record.month_name }}</td>
+                        <td>{{ record.year }}</td>
+                        <td>৳{{ "%.2f"|format(record.net_pay) }}</td>
+                        <td><span class="badge badge-{{ record.payment_status }}">{{ record.payment_status }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p class="empty-state">No payroll records yet.</p>
+        {% endif %}
+    </section>
+</div>
+{% endif %}
+
+{% if current_user.role == 'employee' %}
+<section class="dashboard-section">
+    <h2>My Information</h2>
+    <p>You are logged in as an employee. Use the navigation menu to access your profile and view your payroll information.</p>
+    <a href="{{ url_for('main.profile') }}" class="btn btn-primary">View My Profile</a>
+</section>
+{% endif %}
+{% endblock %}
