@@ -1,9 +1,34 @@
 ```
 # Python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
+.python-version
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+.mypy_cache/
+.hypothesis/
+
+# Flask
+instance/
+.webassets-cache
+
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -20,28 +45,18 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Logs
-*.log
-server.log
-server_v2.log
-
-# Database
-instance/du_payroll.db
-
-# PDFs
-test_payslip.pdf
-
-# Environment variables
-.env
-.env.local
-.env.*
-
-# IDE
+# IDEs
 .vscode/
 .idea/
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Environment variables
+.env
+.env.local
+*.env
 ```
